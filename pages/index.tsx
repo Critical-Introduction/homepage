@@ -83,8 +83,10 @@ const recentPosts = [
 ]
 
 
-export default function Home() {
+export default function Home(props: any) {
   return (
+    <>
+    {props.ssrWorking? (
     /* This example requires Tailwind CSS v2.0+ */
     <div className="relative bg-gray-50">
       <Popover className="relative bg-white shadow">
@@ -404,5 +406,13 @@ export default function Home() {
       </div>
       </main>
     </div>
-  )
+  ) : (
+    <h2>SSR not working</h2>
+  )}
+  </>
+  );
+}
+
+export async function getServerSideProps() {
+  return { props: { ssrWorking: true } };
 }
