@@ -16,6 +16,10 @@ import {
 } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 
+const callsToAction = [
+    { name: 'Watch Demo', href: '#', icon: PlayIcon },
+    { name: 'Contact Sales', href: '#', icon: PhoneIcon },
+  ]
 
 const features = [
     {
@@ -137,7 +141,7 @@ const Header = () => {
                           >
                             <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                               <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                                {features.map((item) => (
+                              {features.map((item) => (
                                   <a
                                     key={item.name}
                                     href={item.href}
@@ -149,6 +153,19 @@ const Header = () => {
                                       <p className="mt-1 text-sm text-gray-500">{item.description}</p>
                                     </div>
                                   </a>
+                                ))}
+                              </div>
+                              <div className="px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
+                                {callsToAction.map((item) => (
+                                  <div key={item.name} className="flow-root">
+                                    <a
+                                      href={item.href}
+                                      className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
+                                    >
+                                      <item.icon className="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" />
+                                      <span className="ml-3">{item.name}</span>
+                                    </a>
+                                  </div>
                                 ))}
                               </div>
                             </div>
@@ -245,19 +262,18 @@ const Header = () => {
                 </Popover.Group>
                 <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
                   <a href="#" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
-                    Find your agents
+                    Sign in
                   </a>
                   <a
                     href="#"
                     className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-600 hover:bg-red-700"
                   >
-                    Become an agent 
+                    Sign up
                   </a>
                 </div>
               </div>
             </div>
-            {/* cut here  */}
-
+            {/* moblie view below  */}
             <Transition
               show={open}
               as={Fragment}
@@ -279,7 +295,7 @@ const Header = () => {
                       <div>
                         <img
                           className="h-8 w-auto"
-                          src="https://tailwindui.com/img/logos/workflow-mark-red-600.svg"
+                          src="https://cdn.discordapp.com/attachments/671848184938758155/842113992873082920/Untitled-1.png"
                           alt="Workflow"
                         />
                       </div>
