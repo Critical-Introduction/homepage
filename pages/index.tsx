@@ -17,7 +17,7 @@ import {
   ViewGridIcon,
   XIcon,
 } from '@heroicons/react/outline'
-import { ChevronDownIcon } from '@heroicons/react/solid'
+import { ChevronDownIcon, GlobeAltIcon } from '@heroicons/react/solid'
 
 function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(' ')
@@ -28,26 +28,29 @@ const features = [
   {
     name: 'Website',
     href: '#',
-    description: 'Put yourself ahead of the learning curve of your online presence.',
-    icon: ChartBarIcon,
+    description: 'Put yourself ahead of the curve when it comes to your online presence.',
+    icon: GlobeAltIcon,
   },
   {
-    name: 'Engagement',
+    name: 'Problem Builder',
     href: '#',
-    description: 'Speak directly to your customers in a more meaningful way.',
+    description: 'Execute any issue by thoroughly understanding the domain, timeframes, and deliverables.',
     icon: CursorClickIcon,
   },
-  { name: 'Security', href: '#', description: "Your customers' data will be safe and secure.", icon: ShieldCheckIcon },
+  { name: 'Security', 
+    href: '#', 
+    description: "The modern startup scene is rife with vulnerabilities. Contact us to get thorough insights into your own operations.",
+    icon: ShieldCheckIcon },
   {
     name: 'Integrations',
     href: '#',
-    description: "Connect with third-party tools that you're already using.",
+    description: "Power up your entire operation by taking advantage of the cutting edge open-source technology offering of today.",
     icon: ViewGridIcon,
   },
   {
-    name: 'Automations',
+    name: 'Continous Integration',
     href: '#',
-    description: 'Build strategic funnels that will drive your customers to convert',
+    description: 'Build strategic relationships that will drive your executive and creative potential.',
     icon: RefreshIcon,
   },
 ]
