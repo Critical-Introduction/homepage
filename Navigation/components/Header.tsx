@@ -23,32 +23,35 @@ const callsToAction = [
   ]
 
 const features = [
-    {
-      name: 'Website',
-      href: '#',
-      description: 'Put yourself ahead of the learning curve of your online presence.',
-      icon: GlobeAltIcon,
-    },
-    {
-      name: 'Problem Builder',
-      href: '#',
-      description: 'Execute any issue by thoroughly understanding the domain, timeframes, and deliverables.',
-      icon: CursorClickIcon,
-    },
-    { name: 'Security', href: '#', description: "The modern startup scene is rife with vulnerabilities. Contact us to get thorough insights into your own operations.", icon: ShieldCheckIcon },
-    {
-      name: 'Integrations',
-      href: '#',
-      description: "Power up your entire operation by taking advantage of the cutting edge open-source technology offering of today.",
-      icon: ViewGridIcon,
-    },
-    {
-      name: 'Automations',
-      href: '#',
-      description: 'Build strategic relationships that will drive your executive and creative potential.',
-      icon: RefreshIcon,
-    },
-  ]
+  {
+    name: 'Website',
+    href: '#',
+    description: 'Put yourself ahead of the curve when it comes to your online presence.',
+    icon: GlobeAltIcon,
+  },
+  {
+    name: 'Problem Builder',
+    href: '#',
+    description: 'Execute any issue by thoroughly understanding the domain, timeframes, and deliverables.',
+    icon: CursorClickIcon,
+  },
+  { name: 'Security', 
+    href: '#', 
+    description: "The modern startup scene is rife with vulnerabilities. Contact us to get thorough insights into your own operations.",
+    icon: ShieldCheckIcon },
+  {
+    name: 'Integrations',
+    href: '#',
+    description: "Power up your entire operation by taking advantage of the cutting edge open-source technology offering of today.",
+    icon: ViewGridIcon,
+  },
+  {
+    name: 'Continous Integration',
+    href: '#',
+    description: 'Build strategic relationships that will drive your executive and creative potential.',
+    icon: RefreshIcon,
+  },
+]
   const resources = [
     {
       name: 'Help Center',
