@@ -13,6 +13,7 @@ import {
   SupportIcon,
   ViewGridIcon,
   XIcon,
+  GlobeAltIcon,
 } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 
@@ -22,32 +23,35 @@ const callsToAction = [
   ]
 
 const features = [
-    {
-      name: 'Analytics',
-      href: '#',
-      description: 'Get a better understanding of where your traffic is coming from.',
-      icon: ChartBarIcon,
-    },
-    {
-      name: 'Engagement',
-      href: '#',
-      description: 'Speak directly to your customers in a more meaningful way.',
-      icon: CursorClickIcon,
-    },
-    { name: 'Security', href: '#', description: "Your customers' data will be safe and secure.", icon: ShieldCheckIcon },
-    {
-      name: 'Integrations',
-      href: '#',
-      description: "Connect with third-party tools that you're already using.",
-      icon: ViewGridIcon,
-    },
-    {
-      name: 'Automations',
-      href: '#',
-      description: 'Build strategic funnels that will drive your customers to convert',
-      icon: RefreshIcon,
-    },
-  ]
+  {
+    name: 'Website',
+    href: '#',
+    description: 'Put yourself ahead of the curve when it comes to your online presence.',
+    icon: GlobeAltIcon,
+  },
+  {
+    name: 'Problem Builder',
+    href: '#',
+    description: 'Execute any issue by thoroughly understanding the domain, timeframes, and deliverables.',
+    icon: CursorClickIcon,
+  },
+  { name: 'Security', 
+    href: '#', 
+    description: "The modern startup scene is rife with vulnerabilities. Contact us to get thorough insights into your own operations.",
+    icon: ShieldCheckIcon },
+  {
+    name: 'Integrations',
+    href: '#',
+    description: "Power up your entire operation by taking advantage of the cutting edge open-source technology offering of today.",
+    icon: ViewGridIcon,
+  },
+  {
+    name: 'Continous Integration',
+    href: '#',
+    description: 'Build strategic relationships that will drive your executive and creative potential.',
+    icon: RefreshIcon,
+  },
+]
   const resources = [
     {
       name: 'Help Center',
@@ -91,7 +95,6 @@ const Header = () => {
               <div className="flex justify-between items-center py-6 md:justify-start md:space-x-10">
                 <div className="flex justify-start lg:w-0 lg:flex-1">
                   <a href="#">
-                    <span className="sr-only">Workflow</span>
                     <img
                       className="h-8 w-auto sm:h-10"
                       src="https://cdn.discordapp.com/attachments/671848184938758155/842113992873082920/Untitled-1.png"
@@ -106,6 +109,9 @@ const Header = () => {
                   </Popover.Button>
                 </div>
                 <Popover.Group as="nav" className="hidden md:flex space-x-10">
+                <a href="/" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                    Home
+                  </a>
                   <Popover className="relative">
                     {({ open }) => (
                       <>
@@ -175,11 +181,9 @@ const Header = () => {
                     )}
                   </Popover>
 
-                  <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
-                    Pricing
-                  </a>
-                  <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
-                    Docs
+
+                  <a href="/contactUs" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                    Contact
                   </a>
 
                   <Popover className="relative">
@@ -191,7 +195,7 @@ const Header = () => {
                             'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500'
                           )}
                         >
-                          <span>More</span>
+                          <span>About</span>
                           <ChevronDownIcon
                             className={classNames(
                               open ? 'text-gray-600' : 'text-gray-400',
