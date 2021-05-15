@@ -26,9 +26,9 @@ function classNames(...classes: any[]) {
 
 const features = [
   {
-    name: 'Analytics',
+    name: 'Website',
     href: '#',
-    description: 'Get a better understanding of where your traffic is coming from.',
+    description: 'Put yourself ahead of the learning curve of your online presence.',
     icon: ChartBarIcon,
   },
   {
