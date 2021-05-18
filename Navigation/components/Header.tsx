@@ -1,4 +1,5 @@
 import { Fragment } from 'react'
+import Link from 'next/link'
 import { Popover, Transition } from '@headlessui/react'
 import {
   BookmarkAltIcon,
@@ -83,7 +84,7 @@ const features = [
     return classes.filter(Boolean).join(' ')
   }
 
-const Header = () => {
+export const Header = () => {
 
 
     return(
@@ -94,13 +95,16 @@ const Header = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
               <div className="flex justify-between items-center py-6 md:justify-start md:space-x-10">
                 <div className="flex justify-start lg:w-0 lg:flex-1">
-                  <a href="#">
+                 
+                    <span className="sr-only">Workflow</span>
+                    <Link href="/">
+
                     <img
                       className="h-8 w-auto sm:h-10"
                       src="https://cdn.discordapp.com/attachments/671848184938758155/842113992873082920/Untitled-1.png"
                       alt=""
                     />
-                  </a>
+                  </Link>
                 </div>
                 <div className="-mr-2 -my-2 md:hidden">
                   <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-500">
@@ -373,6 +377,5 @@ const Header = () => {
 
 }
 
-export default Header
 
 
