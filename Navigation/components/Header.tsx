@@ -98,7 +98,6 @@ export const Header = () => {
                  
                     <span className="sr-only">Workflow</span>
                     <Link href="/">
-
                     <img
                       className="h-8 w-auto sm:h-10"
                       src="https://cdn.discordapp.com/attachments/671848184938758155/842113992873082920/Untitled-1.png"
