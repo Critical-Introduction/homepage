@@ -5,15 +5,16 @@ name: Deploy to Firebase Hosting on merge
 'on':
   push:
     branches:
-      - main
+      - staging
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_HOMEPAGE_FB508 }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_HOMEPAGE_STAGING_1B7FD }}'
           channelId: live
-          projectId: homepage-fb508
+          projectId: homepage-staging-1b7fd
