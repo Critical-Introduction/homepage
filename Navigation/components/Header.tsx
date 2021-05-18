@@ -14,37 +14,45 @@ import {
   SupportIcon,
   ViewGridIcon,
   XIcon,
+  GlobeAltIcon,
 } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 
+const callsToAction = [
+    { name: 'Watch Demo', href: '#', icon: PlayIcon },
+    { name: 'Contact Sales', href: '#', icon: PhoneIcon },
+  ]
 
 const features = [
-    {
-      name: 'Analytics',
-      href: '#',
-      description: 'Get a better understanding of where your traffic is coming from.',
-      icon: ChartBarIcon,
-    },
-    {
-      name: 'Engagement',
-      href: '#',
-      description: 'Speak directly to your customers in a more meaningful way.',
-      icon: CursorClickIcon,
-    },
-    { name: 'Security', href: '#', description: "Your customers' data will be safe and secure.", icon: ShieldCheckIcon },
-    {
-      name: 'Integrations',
-      href: '#',
-      description: "Connect with third-party tools that you're already using.",
-      icon: ViewGridIcon,
-    },
-    {
-      name: 'Automations',
-      href: '#',
-      description: 'Build strategic funnels that will drive your customers to convert',
-      icon: RefreshIcon,
-    },
-  ]
+  {
+    name: 'Website',
+    href: '#',
+    description: 'Put yourself ahead of the curve when it comes to your online presence.',
+    icon: GlobeAltIcon,
+  },
+  {
+    name: 'Problem Builder',
+    href: '#',
+    description: 'Execute any issue by thoroughly understanding the domain, timeframes, and deliverables.',
+    icon: CursorClickIcon,
+  },
+  { name: 'Security', 
+    href: '#', 
+    description: "The modern startup scene is rife with vulnerabilities. Contact us to get thorough insights into your own operations.",
+    icon: ShieldCheckIcon },
+  {
+    name: 'Integrations',
+    href: '#',
+    description: "Power up your entire operation by taking advantage of the cutting edge open-source technology offering of today.",
+    icon: ViewGridIcon,
+  },
+  {
+    name: 'Continous Integration',
+    href: '#',
+    description: 'Build strategic relationships that will drive your executive and creative potential.',
+    icon: RefreshIcon,
+  },
+]
   const resources = [
     {
       name: 'Help Center',
@@ -104,6 +112,9 @@ export const Header = () => {
                   </Popover.Button>
                 </div>
                 <Popover.Group as="nav" className="hidden md:flex space-x-10">
+                <a href="/" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                    Home
+                  </a>
                   <Popover className="relative">
                     {({ open }) => (
                       <>
@@ -139,7 +150,7 @@ export const Header = () => {
                           >
                             <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                               <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                                {features.map((item) => (
+                              {features.map((item) => (
                                   <a
                                     key={item.name}
                                     href={item.href}
@@ -153,6 +164,19 @@ export const Header = () => {
                                   </a>
                                 ))}
                               </div>
+                              <div className="px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
+                                {callsToAction.map((item) => (
+                                  <div key={item.name} className="flow-root">
+                                    <a
+                                      href={item.href}
+                                      className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
+                                    >
+                                      <item.icon className="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" />
+                                      <span className="ml-3">{item.name}</span>
+                                    </a>
+                                  </div>
+                                ))}
+                              </div>
                             </div>
                           </Popover.Panel>
                         </Transition>
@@ -160,11 +184,9 @@ export const Header = () => {
                     )}
                   </Popover>
 
-                  <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
-                    Pricing
-                  </a>
-                  <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
-                    Docs
+
+                  <a href="/contactUs" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                    Contact
                   </a>
 
                   <Popover className="relative">
@@ -176,7 +198,7 @@ export const Header = () => {
                             'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500'
                           )}
                         >
-                          <span>More</span>
+                          <span>About</span>
                           <ChevronDownIcon
                             className={classNames(
                               open ? 'text-gray-600' : 'text-gray-400',
@@ -247,19 +269,18 @@ export const Header = () => {
                 </Popover.Group>
                 <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
                   <a href="#" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
-                    Find your agents
+                    Login
                   </a>
                   <a
                     href="#"
                     className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-600 hover:bg-red-700"
                   >
-                    Become an agent 
+                    Register
                   </a>
                 </div>
               </div>
             </div>
-            {/* cut here  */}
-
+            {/* moblie view below  */}
             <Transition
               show={open}
               as={Fragment}
@@ -281,7 +302,7 @@ export const Header = () => {
                       <div>
                         <img
                           className="h-8 w-auto"
-                          src="https://tailwindui.com/img/logos/workflow-mark-red-600.svg"
+                          src="https://cdn.discordapp.com/attachments/671848184938758155/842113992873082920/Untitled-1.png"
                           alt="Workflow"
                         />
                       </div>
@@ -331,12 +352,12 @@ export const Header = () => {
                         href="#"
                         className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-600 hover:bg-red-700"
                       >
-                        Sign up
+                        Register
                       </a>
                       <p className="mt-6 text-center text-base font-medium text-gray-500">
                         Existing customer?
                         <a href="#" className="text-red-600 hover:text-red-500">
-                          Sign in
+                          Login
                         </a>
                       </p>
                     </div>

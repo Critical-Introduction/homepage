@@ -4,17 +4,12 @@ import React from 'react'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 
-
-
-
-
-
-
-export default function Home() {
+export default function Home(props: any) {
   return (
+    <>
+    {props.ssrWorking? (
     /* This example requires Tailwind CSS v2.0+ */
     <div className="relative bg-gray-50">
-
 
       <main className="lg:relative">
         <div className="mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
@@ -61,5 +56,13 @@ export default function Home() {
       </div>
       </main>
     </div>
-  )
+  ) : (
+    <h2>SSR not working</h2>
+  )}
+  </>
+  );
+}
+
+export async function getServerSideProps() {
+  return { props: { ssrWorking: true } };
 }
