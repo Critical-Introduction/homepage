@@ -277,12 +277,13 @@ export const Header = () => {
                     Sign In
                   </a>
                   </Link>
+                  <Link href="account">
                   <a
-                    href="#"
                     className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-600 hover:bg-red-700"
                   >
-                    Register
+                    Account
                   </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -360,19 +361,21 @@ export const Header = () => {
                       ))}
                     </div>
                     <div>
-                      <Link href="/register">
+                      <Link href="/account">
                       <a
                         
                         className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-600 hover:bg-red-700"
                       >
-                        Register
+                        Account
                       </a>
                       </Link>
                       <p className="mt-6 text-center text-base font-medium text-gray-500">
                         Existing customer?
-                        <a href="#" className="text-red-600 hover:text-red-500">
-                          Login
+                        <Link href="login">
+                        <a  className="text-red-600 hover:text-red-500">
+                          Sign In
                         </a>
+                        </Link>
                       </p>
                     </div>
                   </div>
