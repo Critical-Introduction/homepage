@@ -1,10 +1,57 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
+import { db } from '../config/supabaseClient'
+import { loggedInContext } from '../state/loggedInContext'
+
+// export async function getStaticProps(context:object) {
+//   const onLoadSesstion = db.auth.session()
+  
+//   return {
+//     props: {
+//       onLoadSesstion: onLoadSesstion
+//     }, // will be passed to the page component as props
+//   }
+// }
 
 export default function Home(props: any) {
+  const supabaseUrl = process.env.SUPABASE_URL
+
+ console.log(process.env.NEXT_PUBLIC_SUPABASE_URL) 
+  const {loggedIn, setLoggedIn}:any = useContext(loggedInContext)
+  const [session, setSession] = useState<any>(null)
+
+
+  useEffect(() => {
+    setSession(db.auth.session())
+
+    db.auth.onAuthStateChange((_event, session) => {
+      setSession(session)
+    })
+
+  }, [])
+
+
+  const isUserLoggedIn = async() => {
+
+    if (session){
+      setLoggedIn(true)
+      console.log(session, 'yes')
+       
+    }else {
+      setLoggedIn(false)
+      console.log(session, 'no')
+
+    }
+  }
+
+  //! need to find a better way todo this
+    isUserLoggedIn()
+
+ 
+
   return (
     <>
     {props.ssrWorking? (
@@ -64,5 +111,8 @@ export default function Home(props: any) {
 }
 
 export async function getServerSideProps() {
+
   return { props: { ssrWorking: true } };
 }
+
+

@@ -4,8 +4,6 @@ import { Dialog, Switch, Transition } from '@headlessui/react'
 import { db } from '../config/supabaseClient'
 import { CheckIcon } from '@heroicons/react/outline'
 import { loggedInContext } from '../state/loggedInContext'
-
-const test = null
 interface IProfile {
     username: string,
     firstName: string,
@@ -47,11 +45,6 @@ export default function account() {
   const [session, setSession] = useState<any>(null)
 
   useEffect(() => {
-    setSession(db.auth.session())
-
-    db.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
-    })
 
     getProfile()
     
@@ -82,6 +75,7 @@ export default function account() {
         if(data.username == null){
             setOpen(true)
         }
+        console.log(data)
       }else {
           setOpen(true)
       }

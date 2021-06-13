@@ -190,10 +190,11 @@ export const Header = () => {
                     )}
                   </Popover>
 
-
-                  <a href="/contactUs" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                    <Link  href="/contactUs">
+                  <a className="text-base font-medium text-gray-500 hover:text-gray-900">
                     Contact
                   </a>
+                  </Link>
 
                   <Popover className="relative">
                     {({ open }) => (
@@ -381,14 +382,6 @@ export const Header = () => {
                         Account
                       </a>
                       </Link>
-                      <p className="mt-6 text-center text-base font-medium text-gray-500">
-                        Existing customer?
-                        <Link href="login">
-                        <a  className="text-red-600 hover:text-red-500">
-                          Sign In
-                        </a>
-                        </Link>
-                      </p>
                     </div>
                   </div>
                 </div>
