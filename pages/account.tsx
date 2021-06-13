@@ -1,10 +1,9 @@
 
-import { useEffect, useState, Fragment, useRef } from 'react'
+import { useEffect, useState, Fragment, useRef, useContext } from 'react'
 import { Dialog, Switch, Transition } from '@headlessui/react'
 import { db } from '../config/supabaseClient'
 import { CheckIcon } from '@heroicons/react/outline'
-
-const test = null
+import { loggedInContext } from '../state/loggedInContext'
 interface IProfile {
     username: string,
     firstName: string,
@@ -27,7 +26,7 @@ function classNames(...classes: string[]) {
 }
 
 export default function account() {
-
+    const {loggedIn, setLoggedIn}:any = useContext(loggedInContext)
     const [open, setOpen] = useState(false)
     const cancelButtonRef = useRef(null)
 
@@ -46,11 +45,6 @@ export default function account() {
   const [session, setSession] = useState<any>(null)
 
   useEffect(() => {
-    setSession(db.auth.session())
-
-    db.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
-    })
 
     getProfile()
     
@@ -72,6 +66,7 @@ export default function account() {
       }
 
       if (data) {
+        setLoggedIn(true)
         setUsername(data.username)
         setFirstName(data.firstName)
         setLastName(data.lastName)
@@ -80,6 +75,7 @@ export default function account() {
         if(data.username == null){
             setOpen(true)
         }
+        console.log(data)
       }else {
           setOpen(true)
       }
@@ -443,7 +439,9 @@ export default function account() {
                       </ul>
                     </div>
                     <div className="mt-4 py-4 px-4 flex justify-end sm:px-6">
-                      <button onClick={() => db.auth.signOut()}
+                      <button onClick={() => {db.auth.signOut()
+                    setLoggedIn(false)  
+                    }}
                         type="button"
                         className="bg-white border border-gray-300 rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
                       >
@@ -706,7 +704,9 @@ export default function account() {
                       </ul>
                     </div>
                     <div className="mt-4 py-4 px-4 flex justify-end sm:px-6">
-                      <button onClick={() => db.auth.signOut()}
+                      <button onClick={() => {db.auth.signOut()
+                    setLoggedIn(false)  
+                    }}
                         type="button"
                         className="bg-white border border-gray-300 rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
                       >
