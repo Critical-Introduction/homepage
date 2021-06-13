@@ -14,7 +14,9 @@ export default function login() {
     const handleLogin = async (email:string) => {
       try {
         setLoading(true)
-        const { error } = await db.auth.signIn({ email })
+        const { error } = await db.auth.signIn({ email },{
+            redirectTo: 'localhost:3000/account'
+        })
         if (error) throw error
         alert('Check your email for the login link!')
       } catch (error) {
