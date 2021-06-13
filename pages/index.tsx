@@ -14,7 +14,7 @@ export default function Home(props: any) {
           <div className="px-4 lg:w-1/2 sm:px-8 xl:pr-16">
             <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
               <span className="block xl:inline">All you need is a </span>{' '}
-              <span className="block text-red-600 xl:inline">Critical Introduction.</span>
+              <span className="block text-red-600 xl:inline">Critical Introduction. firebase legacy build</span>
             </h1>
             <p className="mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
               You don't need an entire team to create problems just to outsource the technical solutions. Use our free problem builder now and watch the way you execute your vision transform, or talk to us directly.
