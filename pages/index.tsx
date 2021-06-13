@@ -35,11 +35,9 @@ export default function Home(props: any) {
 
     if (session){
       setLoggedIn(true)
-      console.log(session, 'yes')
        
     }else {
       setLoggedIn(false)
-      console.log(session, 'no')
 
     }
   }

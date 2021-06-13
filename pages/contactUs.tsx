@@ -15,7 +15,6 @@ export default function contactUs() {
 
   const handleSubmit = (e:any) => {
     e.preventDefault()
-    console.log();
     let data ={"content": 
     `NEW REQUEST
     
