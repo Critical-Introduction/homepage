@@ -1,9 +1,48 @@
 import { MailIcon, PhoneIcon } from '@heroicons/react/outline'
+import Axios from 'axios'
+import { useState } from 'react'
 
 
-
+const header = {"authorization": "MjQ4NTY4NDcxNjYxNTc2MTky.X8dtow.o2EJ9vFT9XH821rK8GsPYYDAJKU"}
 
 export default function contactUs() {
+  const [firstName, setFirstName]:any = useState()
+  const [lastName, setLastName]:any = useState()
+  const [email, setEmail]:any = useState()
+  const [phone, setPhone]:any = useState()
+  const [subject, setSubject]:any = useState()
+  const [message, setMessage]:any = useState()
+
+  const handleSubmit = (e:any) => {
+    e.preventDefault()
+    console.log();
+    let data ={"content": 
+    `NEW REQUEST
+    
+    name: ${firstName} ${lastName}
+    email: ${email}
+    phone: ${phone}
+    
+    Subject:
+    ${subject}
+
+    Message:
+    ${message}
+
+    --------------------------
+    `,
+  "nonce" : Math.floor(Math.random() * 1000000000000000) + 1000000000000000,
+  "tts": false
+  }
+
+
+    Axios.post('https://discord.com/api/v9/channels/727496094019485797/messages', 
+    data, {headers: header}
+    
+    )
+
+  }
+
   return (
     <div className="bg-white-100 ">
     <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8 ">
@@ -194,13 +233,15 @@ export default function contactUs() {
           {/* Contact form */}
           <div className="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12">
             <h3 className="text-lg font-medium text-gray-900">Send us a message</h3>
-            <form action="#" method="POST" className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+            <form onSubmit={(e) => handleSubmit(e)} method="POST" className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
               <div>
                 <label htmlFor="first_name" className="block text-sm font-medium text-gray-900">
                   First name
                 </label>
                 <div className="mt-1">
                   <input
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
                     type="text"
                     name="first_name"
                     id="first_name"
@@ -215,6 +256,8 @@ export default function contactUs() {
                 </label>
                 <div className="mt-1">
                   <input
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
                     type="text"
                     name="last_name"
                     id="last_name"
@@ -229,6 +272,8 @@ export default function contactUs() {
                 </label>
                 <div className="mt-1">
                   <input
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     id="email"
                     name="email"
                     type="email"
@@ -248,6 +293,8 @@ export default function contactUs() {
                 </div>
                 <div className="mt-1">
                   <input
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
                     type="text"
                     name="phone"
                     id="phone"
@@ -263,6 +310,8 @@ export default function contactUs() {
                 </label>
                 <div className="mt-1">
                   <input
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
                     type="text"
                     name="subject"
                     id="subject"
@@ -281,6 +330,8 @@ export default function contactUs() {
                 </div>
                 <div className="mt-1">
                   <textarea
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                     id="message"
                     name="message"
                     rows={4}

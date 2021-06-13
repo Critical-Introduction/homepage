@@ -17,9 +17,6 @@ import { loggedInContext } from '../state/loggedInContext'
 // }
 
 export default function Home(props: any) {
-  const supabaseUrl = process.env.SUPABASE_URL
-
- console.log(process.env.NEXT_PUBLIC_SUPABASE_URL) 
   const {loggedIn, setLoggedIn}:any = useContext(loggedInContext)
   const [session, setSession] = useState<any>(null)
 
